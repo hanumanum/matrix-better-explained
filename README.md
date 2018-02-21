@@ -1,2 +1,4 @@
-# matrix-better-explined
-sandbox for matrix explination in javascript
+# matrix better explained
+sandbox for matrix explaination in javascript
+
+![](matrix.png)
