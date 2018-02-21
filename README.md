@@ -1,4 +1,5 @@
 # matrix better explained
-sandbox for matrix explaination in javascript
+sandbox for matrix explanation in javascript
 
 ![](matrix.png)
+![](matrix2.png)

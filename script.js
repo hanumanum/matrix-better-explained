@@ -1,4 +1,4 @@
-/// <reference path="../p5.d/p5.global-mode.d.ts" />
+/// <reference path="p5.d/p5.global-mode.d.ts" />
 var matrix, place, pixelSize = 22, dim = 20, currColor = "#ffdd00";
 var palette = ["#ffdd00"
               ,"#ffffff"
