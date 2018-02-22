@@ -1,5 +1,7 @@
 /// <reference path="p5.d/p5.global-mode.d.ts" />
-var matrix, place, pixelSize = 22, dim = 20, currColor = "#ffdd00";
+var matrix, place, pixelSize = 22, dim = 20, currColor = "#ffdd00", pointerCoords;
+var assignetPoints = [];
+var animation = function(){};
 var palette = ["#ffdd00"
               ,"#ffffff"
               ,"#000000"
@@ -21,7 +23,7 @@ var palette = ["#ffdd00"
               ,"#D68910"
               ,"#F1948A"];
 
-matrixSimpson = [
+var matrixSimpson = [
   ["#3498DB","#3498DB","#3498DB","#3498DB","#3498DB","#3498DB","#3498DB","#3498DB","#3498DB","#3498DB","#000000","#000000","#000000","#000000","#3498DB","#3498DB","#3498DB","#3498DB","#3498DB","#3498DB"],
   ["#3498DB","#3498DB","#3498DB","#3498DB","#3498DB","#3498DB","#000000","#3498DB","#000000","#3498DB","#000000","#ffdd00","#ffdd00","#000000","#3498DB","#3498DB","#3498DB","#3498DB","#3498DB","#3498DB"],
   ["#3498DB","#3498DB","#000000","#3498DB","#000000","#3498DB","#000000","#000000","#000000","#000000","#ffdd00","#ffdd00","#ffdd00","#000000","#3498DB","#3498DB","#3498DB","#3498DB","#3498DB","#3498DB"],
@@ -66,7 +68,7 @@ var matrixAngle = [
   ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
   ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
   ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"]
-]
+];
 
 
 var matrixTetris = [ 
@@ -90,7 +92,7 @@ var matrixTetris = [
   ["#F7DC6F","#F7DC6F","#000000","#A04000","#ffffff","#ffffff","#E74C3C","#ffffff","#A04000","#ffffff","#8E44AD","#ffffff","#ffffff","#8E44AD","#8E44AD","#8E44AD","#ffffff","#A04000","#28B463","#28B463"],
   ["#F7DC6F","#F7DC6F","#000000","#A04000","#A04000","#E74C3C","#E74C3C","#E74C3C","#A04000","#A04000","#8E44AD","#8E44AD","#DC7633","#8E44AD","#3498DB","#3498DB","#A04000","#A04000","#C0392B","#28B463"],
   ["#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#A04000","#8E44AD","#DC7633","#DC7633","#DC7633","#3498DB","#3498DB","#A04000","#E74C3C","#E74C3C","#E74C3C"]
-]
+];
 
 var matrixArtsakh = [ 
   ["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"],
@@ -113,7 +115,7 @@ var matrixArtsakh = [
   ["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"],
   ["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"],
   ["#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"]
-]
+];
 
 var matrixGOL = [ 
   ["#3498DB","#3498DB","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#ffffff","#ffffff","#ffffff","#28B463","#28B463","#28B463","#28B463","#28B463","#3498DB","#3498DB","#3498DB"],
@@ -136,31 +138,56 @@ var matrixGOL = [
   ["#3498DB","#3498DB","#ffffff","#ffdd00","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463"],
   ["#3498DB","#3498DB","#3498DB","#ffffff","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463"],
   ["#3498DB","#3498DB","#3498DB","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463","#28B463"]
-]
+];
 
 var matrixSnake = [ 
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#ffffff","#ffffff","#ffffff","#28B463","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-  ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"]
-]
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#ffffff","#ffffff","#ffffff","#28B463","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+    ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"]
 
+];
+
+
+
+var matrixBorad = [ 
+  ["#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000"],
+  ["#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000"],
+  ["#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000"],
+  ["#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff"],
+  ["#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff"],
+  ["#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff"],
+  ["#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000"],
+  ["#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000"],
+  ["#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000"],
+  ["#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff"],
+  ["#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff"],
+  ["#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff"],
+  ["#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000"],
+  ["#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000"],
+  ["#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000"],
+  ["#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff"],
+  ["#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff"],
+  ["#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff"],
+  ["#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000"],
+  ["#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000","#000000","#ffffff","#ffffff","#ffffff","#000000","#000000"]
+];
 
 if(matrix!==undefined){
   dim = matrix.length;
@@ -177,28 +204,52 @@ function setup() {
   background("gray");
   mDiv = document.getElementById("matrix");
   mDiv.innerHTML = printMatrixText(matrix);
+  pointerCoordsDiv = document.getElementById("pointerCoords");
   drawGrid();
   drawPallette();
 }
 
 
 function draw() {
+  frameRate(60);
+  //animation();
   if (mouseIsPressed && isInGrid(mouseX, mouseY)) {
     setPixelColor(mouseX, mouseY, currColor);
     drawGrid();
-
-  }
-}
-
-
-function mouseClicked() {
-  if (isInGrid(mouseX, mouseY)) {
     mDiv.innerHTML = printMatrixText(matrix);
+    //assignetPoints.push(getIndexByCoords(mouseX, mouseY));
   }
-  if(isInPalette(mouseX, mouseY)){
+  else if(mouseIsPressed && isInPalette(mouseX, mouseY)){
     currColor=palette[floor(mouseY / pixelSize)];
   }
+  else if(animation!==undefined){
+    animation();
+    drawGrid();
+    mDiv.innerHTML = printMatrixText(matrix);
+  
+  }
+
 }
+
+/*
+function mouseClicked() {
+  if (isInGrid(mouseX, mouseY)) {
+    
+  }
+  if(isInPalette(mouseX, mouseY)){
+    
+  }
+}
+*/
+
+
+function mouseMoved() {
+  if(isInGrid(mouseX,mouseY)){
+    var indx = getIndexByCoords(mouseX,mouseY);
+    pointerCoordsDiv.innerHTML = "matrix["+indx.indY+"][" + indx.indX + "]";
+   }
+}
+
 
 function drawGrid() {
  
@@ -262,7 +313,16 @@ function fillMatrix(dim) {
 
 
 function setPixelColor(x, y, clr) {
-  matrix[floor(y / pixelSize)][floor(x / pixelSize)] = clr;
+  var indx = getIndexByCoords(x,y);
+  matrix[indx.indY][indx.indX] = clr;
+}
+
+
+function getIndexByCoords(x,y){
+  return {
+    indY:floor(y / pixelSize),
+    indX:floor(x / pixelSize)
+  }
 }
 
 function isInGrid(x, y) {
@@ -275,29 +335,37 @@ function isInPalette(x, y) {
 }
 
 
-
+var step = 0; //for animations
 $( document ).ready(function() {
   $(".examples").click(function(){
     switch (this.id) {
       case "ex1":
+        step = 0
         matrix = matrixAngle;
+        animation = matrixAngleAnimated;
         break;
       case "ex2":
         matrix = matrixTetris;
+        animation = undefined;
         break;
       case "ex3":
         matrix = matrixArtsakh;
+        animation = undefined;
         break; 
       case "ex4":
         matrix = matrixGOL;
+        animation = undefined;
         break;         
       case "ex5":
         matrix = matrixSnake;
+        animation = undefined;
         break;     
       case "ex6":
         matrix = matrixSimpson;
+        animation = undefined;
         break;
       case "ex7":
+        animation = undefined;
         fillMatrix(dim);
         break;
       default:
@@ -308,3 +376,23 @@ $( document ).ready(function() {
 
   })
 });
+
+
+function matrixAngleAnimated(){
+  if(step<20){
+    frameRate(1);
+    matrix[step][step] = random(palette);
+    step++;
+  }
+}
+
+
+
+
+/*
+function* next(index) {
+  while (index < 2) {
+    yield index++;
+  }
+}
+*/
