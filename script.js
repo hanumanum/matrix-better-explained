@@ -36,10 +36,6 @@ function draw() {
   else if (mouseIsPressed && isInPalette(mouseX, mouseY)) {
     currColor = palette[floor(mouseY / pixelSize)];
   }
-  else if (mouseIsPressed && !(isInPalette(mouseX, mouseY) && isInGrid(mouseX, mouseY))) {
-    //noLoop();
-    console.log("clicked otuside");
-  }
   else if (animation !== undefined) {
     animation();
     drawGrid();
@@ -166,23 +162,27 @@ $(document).ready(function () {
         break;
       case "ex2":
         step = 5;
-        matrix = matrixTetris;
+        matrix = copyMatrixByValue(matrixTetris);
         animation = matrixTetrisAnimation;
         break;
       case "ex3":
-        matrix = matrixArtsakh;
+        step = 0;
+        matrix = copyMatrixByValue(matrixArtsakh);
         animation = matrixFlagAnimation;
         break;
       case "ex4":
-        matrix = matrixGOL;
+        step = 0;
+        matrix = copyMatrixByValue(matrixGOL);
         animation = matrixGOLAnimation;
         break;
       case "ex5":
-        matrix = matrixSnake;
-        animation = undefined;
+        step = 0; 
+        matrix = copyMatrixByValue(matrixSnake);
+        animation = matrixSnakeAnimation;
         break;
       case "ex6":
-        matrix = matrixSimpson;
+        step = 0;
+        matrix = copyMatrixByValue(matrixSimpson);
         animation = matrixSimpsonAnimation;
         break;
       case "ex7":
@@ -195,6 +195,19 @@ $(document).ready(function () {
     drawGrid();
     mDiv.innerHTML = printMatrixText(matrix);
   })
+
+
+
+  $("#matrix").mouseover(function(){
+    noLoop();
+  });
+
+  $("#matrix").mouseout(function(){
+    console.log("out");
+    loop();
+  });
+  
+
 });
 
 
@@ -278,21 +291,30 @@ function matrixSimpsonAnimation() {
 }
 
 function matrixGOLAnimation() {
-  if (step < 20) {
-    if(step<5){
+  if (step < 16) {
+    if(step<6){
       offset = step + 4;
       matrix[9][offset] = "#ffdd00";
       matrix[9][offset-1] = "#ffffff";
     }
-    else if(step>=5){
+    else if(step>=6){
       offset = step + 4;
-      matrix[offset][10] = "#ffdd00";
-      matrix[offset-1][10] = "#ffffff";
+      matrix[offset][9] = "#ffdd00";
+      matrix[offset-1][9] = "#ffffff";
     }
     step++;
   }
 
 
+}
+
+
+function matrixSnakeAnimation(){
+  if(step<10){
+    matrix[step+2][4] = "#ffffff";
+    matrix[step+10][15] = "#C0392B";
+    step++;
+  }
 }
 
 
@@ -307,6 +329,14 @@ function shuffle(a) {
   }
 }
 
+function copyMatrixByValue(matrix){
+  var newMatrix = JSON.parse(JSON.stringify(matrix));
+  return newMatrix;
+}
+
+/*var m =copyMatrixByValue(matrixGOL);
+console.log(m);
+*/
 /*
 function* next(index) {
   while (index < 2) {
