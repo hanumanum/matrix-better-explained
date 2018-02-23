@@ -141,27 +141,26 @@ var matrixGOL = [
 ];
 
 var matrixSnake = [ 
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#ffffff","#ffffff","#ffffff","#28B463","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
-    ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"]
-
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#C0392B","#ffffff","#ffffff","#ffffff","#28B463","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"],
+     ["#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"]
 ];
 
 
@@ -211,9 +210,10 @@ function setup() {
 
 
 function draw() {
-  frameRate(60);
+  //
   //animation();
   if (mouseIsPressed && isInGrid(mouseX, mouseY)) {
+    frameRate(60);
     setPixelColor(mouseX, mouseY, currColor);
     drawGrid();
     mDiv.innerHTML = printMatrixText(matrix);
@@ -221,6 +221,10 @@ function draw() {
   }
   else if(mouseIsPressed && isInPalette(mouseX, mouseY)){
     currColor=palette[floor(mouseY / pixelSize)];
+  }
+  else if (mouseIsPressed && !(isInPalette(mouseX, mouseY) && isInGrid(mouseX, mouseY))){
+    //noLoop();
+    console.log("clicked otuside");
   }
   else if(animation!==undefined){
     animation();
@@ -338,19 +342,22 @@ function isInPalette(x, y) {
 var step = 0; //for animations
 $( document ).ready(function() {
   $(".examples").click(function(){
+    frameRate(1);
     switch (this.id) {
       case "ex1":
         step = 0
-        matrix = matrixAngle;
-        animation = matrixAngleAnimated;
+        fillMatrix(dim);
+        //matrix = matrixAngle;
+        animation = matrixAngleAnimation;
         break;
       case "ex2":
+        step = 5;
         matrix = matrixTetris;
-        animation = undefined;
+        animation = matrixTetrisAnimation;
         break;
       case "ex3":
         matrix = matrixArtsakh;
-        animation = undefined;
+        animation = matrixFlagAnimation;
         break; 
       case "ex4":
         matrix = matrixGOL;
@@ -373,21 +380,95 @@ $( document ).ready(function() {
     }
     drawGrid();
     mDiv.innerHTML =printMatrixText(matrix);
-
   })
 });
 
 
-function matrixAngleAnimated(){
+function matrixAngleAnimation(){
   if(step<20){
-    frameRate(1);
     matrix[step][step] = random(palette);
     step++;
   }
 }
 
 
+function matrixTetrisAnimation(){
+  if(step+2<17){
+    matrix[step+1][12] = "#3498DB";
+    matrix[step+2][12] = "#3498DB"
+    matrix[step+3][12] = "#3498DB";
+    matrix[step][12] = "#ffffff";
 
+    matrix[step+2][13] = "#3498DB";
+    matrix[step+1][13] = "#ffffff";
+    step++;
+  }
+
+}
+
+var flagPoints = [
+  {r:4,c:19, cl:"#C0392B"},
+  {r:4,c:18, cl:"#C0392B"},
+  {r:5,c:18, cl:"#C0392B"},
+  {r:5,c:17, cl:"#C0392B"},
+  {r:6,c:17, cl:"#C0392B"},
+  {r:6,c:16, cl:"#C0392B"},
+  {r:7,c:15, cl:"#C0392B"},
+  {r:7,c:16, cl:"#C0392B"},
+
+  {r:8,c:14, cl:"#2874A6"},
+  {r:8,c:15, cl:"#2874A6"},
+  {r:9,c:13, cl:"#2874A6"},
+  {r:9,c:14, cl:"#2874A6"},
+  {r:10,c:13, cl:"#2874A6"},
+  {r:10,c:14, cl:"#2874A6"},
+  {r:11,c:14, cl:"#2874A6"},
+  {r:11,c:15, cl:"#2874A6"},
+
+
+  {r:15,c:19, cl:"#D68910"},
+  {r:15,c:18, cl:"#D68910"},
+  {r:14,c:18, cl:"#D68910"},
+  {r:14,c:17, cl:"#D68910"},
+  {r:13,c:17, cl:"#D68910"},
+  {r:13,c:16, cl:"#D68910"},
+  {r:12,c:15, cl:"#D68910"},
+  {r:12,c:16, cl:"#D68910"}
+];
+
+shuffle(flagPoints);
+
+function matrixFlagAnimation(){
+  if(step<24){   //8,8,8,
+    matrix[flagPoints[step].r][flagPoints[step].c] = flagPoints[step].cl;  
+
+      /*
+      if(step<8){
+    
+      }
+      else if(step >=8 && step<16){
+
+      }
+      else if (step>=16 && step<24){
+
+      }
+      */
+      step++;    
+  }
+
+}
+
+
+
+function shuffle(a) {
+  var j, x, i;
+  for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+  }
+}
 
 /*
 function* next(index) {
