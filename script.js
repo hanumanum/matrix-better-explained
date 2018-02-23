@@ -152,7 +152,7 @@ function isInPalette(x, y) {
 var step = 0;
 $(document).ready(function () {
   $(".examples").click(function () {
-    frameRate(1);
+    frameRate(4);
     switch (this.id) {
       case "ex1":
         step = 0
@@ -197,15 +197,16 @@ $(document).ready(function () {
   })
 
 
-
-  $("#matrix").mouseover(function(){
-    noLoop();
-  });
-
-  $("#matrix").mouseout(function(){
-    console.log("out");
+  $("#matrix")
+    .mouseenter(function(){
+      $(this).addClass("large");
+      noLoop();
+  }).mouseleave(function(){
+    $(this).removeClass("large");
     loop();
-  });
+  });;
+
+  
   
 
 });
