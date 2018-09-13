@@ -24,14 +24,11 @@ function setup() {
 
 
 function draw() {
-  //
-  //animation();
   if (mouseIsPressed && isInGrid(mouseX, mouseY)) {
     frameRate(60);
     setPixelColor(mouseX, mouseY, currColor);
     drawGrid();
     mDiv.innerHTML = printMatrixText(matrix);
-    //assignetPoints.push(getIndexByCoords(mouseX, mouseY));
   }
   else if (mouseIsPressed && isInPalette(mouseX, mouseY)) {
     currColor = palette[floor(mouseY / pixelSize)];
@@ -44,17 +41,6 @@ function draw() {
   }
 
 }
-
-/*
-function mouseClicked() {
-  if (isInGrid(mouseX, mouseY)) {
-    
-  }
-  if(isInPalette(mouseX, mouseY)){
-    
-  }
-}
-*/
 
 
 function mouseMoved() {
@@ -157,7 +143,6 @@ $(document).ready(function () {
       case "ex1":
         step = 0
         fillMatrix(dim);
-        //matrix = matrixAngle;
         animation = matrixAngleAnimation;
         break;
       case "ex2":
@@ -196,7 +181,7 @@ $(document).ready(function () {
     mDiv.innerHTML = printMatrixText(matrix);
   })
 
-
+  /*
   $("#matrix")
     .mouseenter(function(){
       $(this).addClass("large");
@@ -205,7 +190,7 @@ $(document).ready(function () {
     $(this).removeClass("large");
     loop();
   });;
-
+  */
   
   
 
