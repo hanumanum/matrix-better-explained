@@ -181,16 +181,14 @@ $(document).ready(function () {
     mDiv.innerHTML = printMatrixText(matrix);
   })
 
-  /*
+  
   $("#matrix")
     .mouseenter(function(){
-      $(this).addClass("large");
       noLoop();
   }).mouseleave(function(){
-    $(this).removeClass("large");
     loop();
   });;
-  */
+  
   
   
 
